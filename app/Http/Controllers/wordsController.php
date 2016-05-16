@@ -89,7 +89,7 @@ class wordsController extends Controller
         
         $deleted = DB::table('words')->where('id', $word_id)->delete();
         
-        return view('saved');
+        return view('deleted');
      
     }
 
