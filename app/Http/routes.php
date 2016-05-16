@@ -38,4 +38,8 @@ Route::get('/lists/saved', 'listsController@store');
 
 Route::get('/delete/{word_id}', ['as' => 'delete', 'uses' => 'wordsController@delete']);
 
+Route::get('/move/{word_id}/{word}/{translation}', ['as' => 'move', 'uses' => 'wordsController@move']);
+
+Route::post('/update', 'wordsController@update');
+
 // Route::get('words.delete', 'wordsController@delete');

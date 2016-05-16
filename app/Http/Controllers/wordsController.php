@@ -78,7 +78,7 @@ class wordsController extends Controller
         
         $saved = DB::insert('insert into words (list_id, word, translation) values (?, ?, ?)', array($list_id, $word, $definition));
     
-        return view('saved', compact('word', 'definition'));
+        return view('saved');
      
     }
     
@@ -92,4 +92,33 @@ class wordsController extends Controller
         return view('saved');
      
     }
+
+    public function move($word_id, $word, $translation)
+    {
+        
+        
+        $user = Auth::user();
+        
+        $user_id = $user->id;
+    
+        $lists = ListsModel::where('user_id', $user_id)->get(); //add and user_id = userid
+        
+//  
+//         
+//         $deleted = DB::table('words')->where('id', $word_id)->delete();
+        
+        return view('words.move', compact('word_id', 'lists', 'word', 'translation'));
+     
+    }
+    
+    public function update(Request $request)
+    {
+        $word_id = $request->word_id;
+        $list_id = $request->list_id;
+        
+        $update = DB::table('words')->where('id', $word_id)->update(['list_id' => $list_id]);
+        
+        return view('moved');
+    }
+    
 }

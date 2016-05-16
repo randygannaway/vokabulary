@@ -5,9 +5,11 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">The words you 've searched for</div>
+                <div class="panel-heading">The words you 've searched for
+                </div>
                 <div class="panel-body">
-                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                </div>
                     <div class="col-md-6">
                         <div class="list-group">
                             @foreach ($words as $word)
@@ -16,7 +18,8 @@
                                 <li class="list-group-item clearfix" id="word">
                                     {{ $word->translation }}
                                     <a href="{{ route('delete', ['word_id' => $word->id ]) }}" class="pull-right"><span class="glyphicon glyphicon-trash" title="DELETE"></span></a>
-                                    <a href="{{ route('delete', ['word_id' => $word->id ]) }}" class="pull-right"><span class="glyphicon glyphicon-move" title="MOVE"></span></a>
+                                    
+                                    <a href="{{ route('move', ['word_id' => $word->id, 'word' => $word->word, 'translation' => $word->translation ]) }}" class="pull-right"><span class="glyphicon glyphicon-move" title="MOVE"></span></a>
                                 </li>
                                 
                             @endforeach
