@@ -15,7 +15,8 @@
 
                                 <li class="list-group-item clearfix" id="word">
                                     {{ $word->translation }}
-                                    <a href="{{ route('delete', ['word_id' => $word->id ]) }}" class="btn btn-danger pull-right">delete</a>
+                                    <a href="{{ route('delete', ['word_id' => $word->id ]) }}" class="pull-right"><span class="glyphicon glyphicon-trash" title="DELETE"></span></a>
+                                    <a href="{{ route('delete', ['word_id' => $word->id ]) }}" class="pull-right"><span class="glyphicon glyphicon-move" title="MOVE"></span></a>
                                 </li>
                                 
                             @endforeach
