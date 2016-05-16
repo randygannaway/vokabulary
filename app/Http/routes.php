@@ -36,6 +36,6 @@ Route::post('/newlist/store', 'listsController@store');
 
 Route::get('/lists/saved', 'listsController@store');
 
-Route::post('/delete/{word_id}', ['as' => 'delete', 'uses' => 'wordsController@delete']);
+Route::get('/delete/{word_id}', ['as' => 'delete', 'uses' => 'wordsController@delete']);
 
 // Route::get('words.delete', 'wordsController@delete');

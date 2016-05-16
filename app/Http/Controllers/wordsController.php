@@ -85,10 +85,10 @@ class wordsController extends Controller
     public function delete($word_id)
     {
         
-        // $word = $request->word_id;
+        $word_id = $word_id;
         
-        // $saved = DB::insert('insert into words (list_id, word, translation) values (?, ?, ?)', array($list_id, $word, $definition));
-    
+        $deleted = DB::table('words')->where('id', $word_id)->delete();
+        
         return view('saved');
      
     }
