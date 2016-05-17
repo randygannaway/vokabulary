@@ -1,6 +1,6 @@
  body {
     font-family: 'Lato';
-    background: #666666;
+    background: #cccccc;
      
 }
 
@@ -34,6 +34,8 @@
     transition: background 1s, color 1s;
 
 }
+
+
 
 .panel-default .panel-heading {
     background: #6c6c93;
@@ -80,5 +82,10 @@
 }
 
 .panel {
-    border: 0px;
+    border-right-style: outset;
+    border-right-width: 4px;
+    border-right-color: #cccccc;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    border-bottom-color: #666666;    
 }
