@@ -44,28 +44,25 @@ class wordsController extends Controller
         $word = $request->word;
         $lists = ListsModel::all();
         
-        function grab_xml_definition ($word, $ref, $key)
-	{
+        function grab_xml_definition ($word, $ref, $key){
             $uri = "http://www.dictionaryapi.com/api/v1/references/" . urlencode($ref) . "/xml/" . 
             urlencode($word) . "?key=" . urlencode($key);
                 
                 return file_get_contents($uri);
 	}
 
-        $xdef = grab_xml_definition($word, "spanish", "d397ce9a-f05e-4656-be0b-0b866f026c7c");
-    
-        $definition = new \simplexmlelement($xdef);
-        
-        $english = $definition->entry->def->dt[0]->{'ref-link'}[0];
-        
-        
-        // Get lists for the logged in user.
-        $user_id = Auth::user()->id;
-        
-        $lists = ListsModel::where('user_id', $user_id)->get();
-
-        
-        return view('words.definitions', compact('english', 'word', 'lists'));
+	if ($word){
+            $xdef = grab_xml_definition($word, "spanish", "d397ce9a-f05e-4656-be0b-0b866f026c7c");
+            $definition = new \simplexmlelement($xdef);
+            $english = $definition->entry->def->dt[0]->{'ref-link'}[0];
+            // Get lists for the logged in user.
+            $user_id = Auth::user()->id;
+            $lists = ListsModel::where('user_id', $user_id)->get();
+            return view('words.definitions', compact('english', 'word', 'lists'));
+        }
+        else {
+            return redirect()->back();
+        }
          
     }
 
@@ -102,10 +99,6 @@ class wordsController extends Controller
         $user_id = $user->id;
     
         $lists = ListsModel::where('user_id', $user_id)->get(); //add and user_id = userid
-        
-//  
-//         
-//         $deleted = DB::table('words')->where('id', $word_id)->delete();
         
         return view('words.move', compact('word_id', 'lists', 'word', 'translation'));
      

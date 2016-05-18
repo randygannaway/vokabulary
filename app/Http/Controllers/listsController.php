@@ -52,10 +52,21 @@ class listsController extends Controller
         
         $user_id = Auth::user()->id;
 
-        
-        $saved = DB::insert('insert into lists (list_name, user_id) values (?, ?)', array($list_name, $user_id));
-        
+        if ($list_name) {
+            $saved = DB::insert('insert into lists (list_name, user_id) values (?, ?)', array($list_name, $user_id));
+        } 
+        else {
+            return redirect()->back();
+        }
         // return redirect('/home', compact('lists'));
         return view('/saved');
     }    
+    
+        public function delete($list_id)
+    {
+        
+        $deleted = DB::table('lists')->where('list_id', $list_id)->delete();
+        
+        return view('deleted');
+    }
 }

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 
 use App\ListsModel;
+use App\WordsModel;
 use Auth;
+use DB;
 
 
 use App\Http\Requests;
@@ -34,8 +36,10 @@ class HomeController extends Controller
         
         $user_id = $user->id;
     
-        $lists = ListsModel::where('user_id', $user_id)->get(); //add and user_id = userid
+        $lists = ListsModel::where('user_id', $user_id)->get();
+                
+        $words = DB::select('select * from words where list_id in (select list_id from lists where user_id = ?) order by id DESC limit 5', [$user_id]);
         
-        return view('home', compact('lists', 'user_id'));
+        return view('home', compact('lists', 'user_id', 'words'));
     }
 }
