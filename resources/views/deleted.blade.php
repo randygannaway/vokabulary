@@ -14,5 +14,5 @@
     </div>
 </div>
 
-<META http-equiv="refresh" content="1; /home"/>
+<META http-equiv="refresh" content="1; ../"/>
 @endsection 

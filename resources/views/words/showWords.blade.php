@@ -9,6 +9,9 @@
                 </div>
                 <div class="panel-body">
                 <div class="col-md-3">
+                    @if ('message')
+                        <?php echo Session::get('message') . " " . Session::get('word');?>
+                    @endif
                 </div>
                     <div class="col-md-6">
                         <div class="list-group">
@@ -17,7 +20,7 @@
 
                                 <li class="list-group-item clearfix" id="word">
                                     {{ $word->translation }}
-                                    <a href="{{ route('deleteWord', ['word_id' => $word->id ]) }}" class="pull-right"><span class="glyphicon glyphicon-trash" title="DELETE"></span></a>
+                                    <a href="{{ route('deleteWord', ['word_id' => $word->id, 'word' => $word->word ]) }}" class="pull-right"><span class="glyphicon glyphicon-trash" title="DELETE"></span></a>
                                     
                                     <a href="{{ route('move', ['word_id' => $word->id, 'word' => $word->word, 'translation' => $word->translation ]) }}" class="pull-right"><span class="glyphicon glyphicon-move" title="MOVE"></span></a>
                                 </li>

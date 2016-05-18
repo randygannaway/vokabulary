@@ -36,7 +36,7 @@ Route::post('/newlist/store', 'listsController@store');
 
 Route::get('/lists/saved', 'listsController@store');
 
-Route::get('/word/delete/{word_id}', ['as' => 'deleteWord', 'uses' => 'wordsController@delete']);
+Route::get('/word/delete/{word_id}/{word}', ['as' => 'deleteWord', 'uses' => 'wordsController@delete']);
 
 Route::get('/list/delete/{word_id}', ['as' => 'deleteList', 'uses' => 'listsController@delete']);
 
@@ -44,4 +44,3 @@ Route::get('/move/{word_id}/{word}/{translation}', ['as' => 'move', 'uses' => 'w
 
 Route::post('/update', 'wordsController@update');
 
-// Route::get('words.delete', 'wordsController@delete');

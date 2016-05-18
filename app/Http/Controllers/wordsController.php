@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use DB;
 
+use Redirect;
+
 use Auth;
 
 use App\ListsModel;
@@ -79,15 +81,15 @@ class wordsController extends Controller
      
     }
     
-    public function delete($word_id)
+    public function delete($word_id, $word)
     {
-        
+        $word = $word;
         $word_id = $word_id;
         
         $deleted = DB::table('words')->where('id', $word_id)->delete();
         
-        return view('deleted');
-     
+        // return view('deleted');
+        return Redirect::back()->with('message', 'Deleted')->with('word', $word);
     }
 
     public function move($word_id, $word, $translation)
