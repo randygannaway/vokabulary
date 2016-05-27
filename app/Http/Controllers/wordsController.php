@@ -44,12 +44,23 @@ class wordsController extends Controller
     public function search(Request $request)
     {
         $word = $request->word;
-        $lists = ListsModel::all();
+ //       $lists = ListsModel::all();
   
 	//Check if a word was entered, call API or Redirect
 	if($word) {      
 	    
-	    $apiCall = WordsModel::search($word);	    
+	    /* Get translation from model API call 
+	    *  which returns an array of the english translation 
+	    * and the users lists
+	    */
+
+	    $apiCall = WordsModel::search($word);	   
+
+	    // Get variables from array returned by apiCall
+	   
+	    $english = $apiCall['english'];
+	    $lists = $apiCall['lists'];
+ 
             return view('words.definitions', compact('english', 'word', 'lists'));
         } else {
             return redirect()->back();
@@ -64,21 +75,24 @@ class wordsController extends Controller
         $definition = $request->definition;
         $list_id = $request->list_id;
         
-        $saved = DB::insert('insert into words (list_id, word, translation) values (?, ?, ?)', array($list_id, $word, $definition));
-    
+	// Call to store word in the chosen list
+	$stored = WordsModel::storeWord($list_id, $word, $definition);   
+ 
         return view('saved');
      
     }
     
     public function delete($word_id, $word)
     {
-        $word = $word;
-        $word_id = $word_id;
-        
-        $deleted = DB::table('words')->where('id', $word_id)->delete();
-        
-        // return view('deleted');
+       
+	// Call to delete word with id $word_id
+
+	$delete = WordsModel::deleteWord($word_id, $word);
+ 
+        // return deleted message if true;
+
         return Redirect::back()->with('message', 'Deleted')->with('word', $word);
+        
     }
 
     public function move($word_id, $word, $translation)
