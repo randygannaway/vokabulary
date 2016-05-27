@@ -17,18 +17,27 @@ class WordsModel extends Model
 	$params = [];	
         
 	//Get translation from Webster API
-        $xdef = $this->grab_xml_definition($word, "spanish", "d397ce9a-f05e-4656-be0b-0b866f026c7c");
-            
-	//Pick first definition from xml response
-	$definition = new \simplexmlelement($xdef);
-        $params['english'] = $definition->entry->def->dt[0]->{'ref-link'}[0];
-           
-	// Get lists for the logged in user.
-        $user_id = Auth::user()->id;
-        $params['lists'] = ListsModel::where('user_id', $user_id)->get();
-	    
-	return $params;
 
+        $xdef = $this->grab_xml_definition($word, "spanish", "d397ce9a-f05e-4656-be0b-0b866f026c7c");
+
+	//If API returns a definition pick first definition from xml response otherwise return false
+	
+	if (is_object($xdef)) {
+
+	    $definition = new \simplexmlelement($xdef);
+            $params['english'] = $definition->entry->def->dt[0]->{'ref-link'}[0];
+           
+	    // Get lists for the logged in user.
+            $user_id = Auth::user()->id;
+            $params['lists'] = ListsModel::where('user_id', $user_id)->get();
+	    
+	
+	    return $params;
+
+	} else {
+
+	   return false;
+	}
     }
 
     protected function grab_xml_definition($word, $ref, $key)

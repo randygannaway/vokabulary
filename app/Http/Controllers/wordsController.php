@@ -55,15 +55,16 @@ class wordsController extends Controller
 	    */
 
 	    $apiCall = WordsModel::search($word);	   
-
-	    // Get variables from array returned by apiCall
+	    if ($apiCall) {
+	        // Get variables from array returned by apiCall
 	   
-	    $english = $apiCall['english'];
-	    $lists = $apiCall['lists'];
+	        $english = $apiCall['english'];
+	        $lists = $apiCall['lists'];
  
-            return view('words.definitions', compact('english', 'word', 'lists'));
-        } else {
-            return redirect()->back();
+                return view('words.definitions', compact('english', 'word', 'lists'));
+	    } 
+		return redirect()->back();
+ 
         }
          
     }
