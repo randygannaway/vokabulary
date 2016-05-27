@@ -25,8 +25,8 @@ class listsController extends Controller
 
     public function index()
     {
-        // $lists = DB::table('lists')->get();
-        
+	
+	//         
         $lists = ListsModel::all();
         
     
@@ -53,12 +53,13 @@ class listsController extends Controller
         $user_id = Auth::user()->id;
 
         if ($list_name) {
-            $saved = DB::insert('insert into lists (list_name, user_id) values (?, ?)', array($list_name, $user_id));
+	    
+	    ListsModel::newList($list_name, $user_id);
         } 
         else {
             return redirect()->back();
         }
-        // return redirect('/home', compact('lists'));
+    
         return view('/saved');
     }    
     

@@ -18,4 +18,12 @@ class ListsModel extends Model
         return $lists;
     }
 
+    protected function newList($list_name, $user_id)
+    {
+
+	//Insert name of new list and the users id	
+
+        $saved = DB::insert('insert into lists (list_name, user_id) values (?, ?)', 
+                           array($list_name, $user_id));
+    }
 }

@@ -45,24 +45,13 @@ class wordsController extends Controller
     {
         $word = $request->word;
         $lists = ListsModel::all();
-        
-        function grab_xml_definition ($word, $ref, $key){
-            $uri = "http://www.dictionaryapi.com/api/v1/references/" . urlencode($ref) . "/xml/" . 
-            urlencode($word) . "?key=" . urlencode($key);
-                
-                return file_get_contents($uri);
-	}
-
-	if ($word){
-            $xdef = grab_xml_definition($word, "spanish", "d397ce9a-f05e-4656-be0b-0b866f026c7c");
-            $definition = new \simplexmlelement($xdef);
-            $english = $definition->entry->def->dt[0]->{'ref-link'}[0];
-            // Get lists for the logged in user.
-            $user_id = Auth::user()->id;
-            $lists = ListsModel::where('user_id', $user_id)->get();
+  
+	//Check if a word was entered, call API or Redirect
+	if($word) {      
+	    
+	    $apiCall = WordsModel::search($word);	    
             return view('words.definitions', compact('english', 'word', 'lists'));
-        }
-        else {
+        } else {
             return redirect()->back();
         }
          
