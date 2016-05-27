@@ -20,6 +20,9 @@
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary">Define</button>
+					@if ('message')
+					    <?php echo Session::get('message'); ?>
+					@endif
                                     </div>
                                 </form>
                             </div>

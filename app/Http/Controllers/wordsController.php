@@ -44,7 +44,6 @@ class wordsController extends Controller
     public function search(Request $request)
     {
         $word = $request->word;
- //       $lists = ListsModel::all();
   
 	//Check if a word was entered, call API or Redirect
 	if($word) {      
@@ -63,7 +62,7 @@ class wordsController extends Controller
  
                 return view('words.definitions', compact('english', 'word', 'lists'));
 	    } 
-		return redirect()->back();
+		return redirect()->back()->with('message', 'That word was not found');
  
         }
          
