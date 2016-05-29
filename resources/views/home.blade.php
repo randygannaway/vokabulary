@@ -14,7 +14,7 @@
                             <div class="col-md-6 col-md-ofset-1">
                                 <form method="POST" action='/words/definitions'>
                                     <div class="form-group">
-                                        <label for="wordSearch">Find a word</label>
+                                        <label for="wordSearch">Find the translation of a Spanish word</label>
                                         <input type="text" id="wordSearch" name="word" class="form-control"></input>
                                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                     </div>
@@ -25,29 +25,10 @@
 					@endif
                                     </div>
                                 </form>
-                            </div>
-                        
+                            </div>          
 <!--                             Form to create a new list -->
-                            
-                            <div class="col-md-6 col-md-ofset-1">
-                                <form method="POST" action='/newlist/store'>
-                                    <div class="form-group">
-                                        <label for="wordSearch">Create a new list</label>
-                                        <input type="text" name="list_name" class="form-control"></input>   
-                                        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Create</button>
-                                    </div>
-                                </form>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <h3>View the words in an existing list</h3>
-                            </div>
-                            <div class="col-md-6">
-                                <h3>Recently saved words</h3>
-                            </div>
+@include('lists.newlist')
+
                             
 <!--                             Display current lists -->
 

@@ -7,7 +7,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">The top definition</div>
                 <div class="panel-body">
-                    <div class="col-md-2">
+                    <div class="row">
+		    <div class="col-md-2">
                         
                         <p>{{ $word }}</p>
                         <p>{{ $english }}</p> 
@@ -23,11 +24,21 @@
                                 @foreach ($lists as $lists)                                
                                     <button type="submit" class="btn btn-primary" name="list_id" value="{{ $lists->list_id }}">{{ $lists->list_name }}</button>
                                 @endforeach
-                            </div>
+
                         </form>
+		    </div>
+		    </div>
+		    <div clas="row">
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-10">
+			    <h2>Or you can...</h2>
+			    @include('../lists/newlist');
+			</div>
+		    </div>
+
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>
