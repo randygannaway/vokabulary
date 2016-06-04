@@ -1,6 +1,6 @@
  body {
     font-family: 'Lato';
-    background: #cccccc;
+    background: #0066ff;
      
 }
 
@@ -91,4 +91,12 @@
     border-bottom-style: solid;
     border-bottom-width: 4px;
     border-bottom-color: #666666;    
+}
+
+a {
+    color: #000;
+}
+
+a:hover {
+    color: #ff0000;
 }

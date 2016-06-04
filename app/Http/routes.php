@@ -44,3 +44,6 @@ Route::get('/move/{word_id}/{word}/{translation}', ['as' => 'move', 'uses' => 'w
 
 Route::post('/update', 'wordsController@update');
 
+Route::get('/list/study', 'listsController@study');
+
+Route::get('/words/study/{list_id}', ['as' => 'flashcards', 'uses' => 'wordsController@flashcards']);

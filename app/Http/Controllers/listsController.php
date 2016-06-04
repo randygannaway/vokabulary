@@ -36,7 +36,7 @@ class listsController extends Controller
     public function add()
         {
     
-        $lists = ListsModel::all();
+//        $lists = ListsModel::all();
 
     
         return view('lists/newlist');
@@ -63,11 +63,19 @@ class listsController extends Controller
         return view('/saved');
     }    
     
-        public function delete($list_id)
+    public function delete($list_id)
     {
         
         $deleted = DB::table('lists')->where('list_id', $list_id)->delete();
         
         return view('deleted');
+    }
+
+    public function study()
+    {
+
+        $lists = ListsModel::all();        
+
+        return view('lists/studyList', compact('lists'));
     }
 }

@@ -118,5 +118,12 @@ class wordsController extends Controller
         
         return view('moved');
     }
-    
+
+    public function studyList($list_id)
+    {
+        
+        $words = WordsModel::where('list_id', $list_id)->get();
+
+        return view('words.studyWords', compact('words'));
+    }    
 }

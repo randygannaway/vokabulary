@@ -27,23 +27,13 @@
                                 </form>
                             </div>          
 <!--                             Form to create a new list -->
-@include('lists.newlist')
+
+    @include('lists.newlist')
 
                             
 <!--                             Display current lists -->
 
-                            <div class="col-md-6 col-md-ofset-1">
-                                <div class="list-group">
-                                            @foreach ($lists as $lists)   
-                                                <li class="list-group-item clearfix" id="word">
-                                                    <a href="/words/{{ $lists->list_id }}" type="submit" class="btn btn-primary" role="button">{{ $lists->list_name }}</a>
-                                                    <a href="{{ route('deleteList', ['list_id' => $lists->list_id ]) }}" class="pull-right"><span class="glyphicon glyphicon-trash" title="DELETE" onclick="return confirm('Delete the list {{ $lists->list_name }}?')"></span></a>
-                                                </li>
-                                            
-                                            @endforeach
-                                </div>
-                            </div>
-                            
+    @include('lists.showLists')                            
                             
 <!--                              Display recent searches -->
 
