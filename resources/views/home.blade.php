@@ -32,12 +32,12 @@
 
                             
 <!--                             Display current lists -->
-
-    @include('lists.showLists')                            
+        @include('lists.showLists')                            
                             
 <!--                              Display recent searches -->
-
+            
                             <div class="col-md-6 col-md-ofset-1">
+                                <h4>Your recently defined words</h4>
                                 <div class="list-group">
                                     @foreach ($words as $word)
                                          <li class="list-group-item clearfix" id="word">{{ $word->word }}</li>
