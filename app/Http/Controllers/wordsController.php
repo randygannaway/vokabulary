@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use JavaScript;
+
 class wordsController extends Controller
 {
 
@@ -119,11 +121,14 @@ class wordsController extends Controller
         return view('moved');
     }
 
-    public function studyList($list_id)
+    public function flashcards($list_id)
     {
         
         $words = WordsModel::where('list_id', $list_id)->get();
 
+//        JavaScript::put(['words' => array('word' => 'perro', 'translation' => 'dog')]);
+        
+        JavaScript::put(['words' => $words ]);
         return view('words.studyWords', compact('words'));
     }    
 }

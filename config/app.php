@@ -157,7 +157,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         
         Collective\Html\HtmlServiceProvider::class,
-
+        'Laracasts\Utilities\JavaScript\JavaScriptServiceProvider'
     ],
 
     /*

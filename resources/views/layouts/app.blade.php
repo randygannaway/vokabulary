@@ -13,7 +13,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="/css/style.css">
 
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
@@ -68,12 +67,31 @@
         </div>
     </nav>
     @yield('content')
-
+    @include('footer')
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
-    
 
+<script>
+$(document).ready(function() {
+  $('.flashcard').on('click', function() {
+    $('.flashcard').toggleClass('flipped');
+  });
+});    
+
+
+var key = 0;
+function nextWord(){
+document.getElementById("cardFront").innerHTML = words[key].word;
+document.getElementById("cardBack").innerHTML = words[key].translation;
+if ((key+1) < words.length) {
+key++;
+} else {
+key = 0;
+}
+
+}
+</script>
 </body>
 </html>
