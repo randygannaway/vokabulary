@@ -19,6 +19,7 @@
 
 
 <div class="col-md-6 col-md-ofset-1">
+<h4>Choose a list to study</h4>
 <div class="list-group">
             @foreach ($lists as $lists)   
                 <li class="list-group-item clearfix" id="word">
