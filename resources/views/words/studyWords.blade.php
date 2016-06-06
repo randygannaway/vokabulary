@@ -15,13 +15,13 @@
                         
                             
 <!--                          Flascards  -->
-                        <div c1ass="stage col-md-8">
-                          <div class="flashcard col-md-8">
-                            <div class="front col-md-8">
+                        <div c1ass="stage col-md-4">
+                          <div class="flashcard">
+                            <div class="front">
                                                         
                               <p id="cardFront"></p>
                             </div>
-                            <div class="back col-md-8">
+                            <div class="back">
                               <p id="cardBack"></p>
                             </div>
                           </div>  
