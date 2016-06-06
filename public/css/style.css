@@ -71,7 +71,12 @@
 
 .btn-primary
 {
-    background: #008057;
+/*     background: #008057;*/
+
+    background-color: #008057;
+    background: -webkit-linear-gradient(#888, #008057);
+    background: linear-gradient(#7fbfab, #008057);
+);
 }
 
 
@@ -134,4 +139,22 @@ a:hover {
 .front p, .back p {
   margin-top: 25%;       
   font-size: 3em;
+}
+
+button
+{
+    display: block;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    margin: 20px auto;
+    color: #ccc;
+    border: 0 none;
+    border-radius: 3px;
+    text-shadow: 0 -1px 0 #000;
+    box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
+    cursor: pointer;
+    -webkit-transition: all 150ms ease;
+    transition: all 150ms ease;
 }

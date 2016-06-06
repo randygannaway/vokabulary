@@ -8,14 +8,14 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading">Click card to Flip, or Next to move on</div>
 
                     <div class="panel-body">                        
                 
                         
                             
 <!--                          Flascards  -->
-                        <div c1lass="stage">
+                        <div c1lass="stage col-md-8">
                           <div class="flashcard">
                             <div class="front">
                                                         

@@ -36,7 +36,9 @@
 			    @include('../lists/newlist');
 			</div>
 		    </div>
-
+                    <div class="col-md-12">
+                        <a href="/home" class="pull-right">Return to dashboard</a>
+                    </div>
                     </div>
                 </div>
         </div>
