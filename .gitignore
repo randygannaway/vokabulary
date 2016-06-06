@@ -2,4 +2,4 @@
 Homestead.yaml
 Homestead.json
 .env
-resources/views/layouts/app.blade.php
+/resources/views/layouts/app.blade.php
