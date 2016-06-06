@@ -113,8 +113,8 @@ a:hover {
 }
 
 .flashcard {
-  max-width: 100%; 
-  height: 500px;  
+  max-width: 70%; 
+  height: 300px;  
   background-size: 100% 100%;
   margin: 10% auto;
   border: 1px solid gray; 

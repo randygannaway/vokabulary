@@ -15,23 +15,25 @@
                         
                             
 <!--                          Flascards  -->
-                        <div c1ass="stage col-md-4">
-                          <div class="flashcard">
-                            <div class="front">
+                    <div class="row">
+                        <div c1ass="stage col-md-8">
+                          <div class="flashcard clo-md-8">
+                            <div class="front col-md-8">
                                                         
                               <p id="cardFront"></p>
                             </div>
-                            <div class="back">
+                            <div class="back col-md-8">
                               <p id="cardBack"></p>
                             </div>
                           </div>  
                         </div>
+                    </div>
+                    <div class ="row">
                         <div class="row col-md-8">
 
-                            <button onclick="nextWord()">Next</button>                                                     
-        
+                            <button onclick="nextWord()">Next</button>                                          
                         </div>
-
+                    </div>
                 </div>
             </div>
         </div>
