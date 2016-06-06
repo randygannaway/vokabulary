@@ -15,7 +15,7 @@
                         
                             
 <!--                          Flascards  -->
-                        <div c1lass="stage col-md-8">
+                        <div c1ass="stage col-md-8">
                           <div class="flashcard col-md-8">
                             <div class="front col-md-8">
                                                         
