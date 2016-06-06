@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use Laracasts\Utilities\JavaScript\JavaScriptServiceProvider;
+use \JavaScript;
 
 class wordsController extends Controller
 {
