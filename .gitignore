@@ -3,3 +3,4 @@ Homestead.yaml
 Homestead.json
 .env
 /resources/views/layouts/app.blade.php
+/nbproject/private/
