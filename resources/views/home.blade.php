@@ -12,7 +12,7 @@
 <!--                             Form to lookup the translation of a word -->
                         
                             <div class="col-md-6 col-md-ofset-1">
-                                <form method="POST" action='/words/definitions'>
+                                <form method="POST" action={{ url('/words/definitions') }}>
                                     <div class="form-group">
                                         <label for="wordSearch">Find the translation of a Spanish word</label>
                                         <input type="text" id="wordSearch" name="word" class="form-control"></input>
